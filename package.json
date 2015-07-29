@@ -1,6 +1,6 @@
 {
   "name": "waiter.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Waiting for triggering custom sync/async condition with any timeout and interval",
   "main": "waiter.js",
   "scripts": {
