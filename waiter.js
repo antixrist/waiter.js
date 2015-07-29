@@ -30,7 +30,7 @@ function Waiter (timeout, interval, condition, callback) {
   this.timeout = timeout;
   this.interval = interval;
   this.condition = condition;
-  this.cb = callback;
+  this.callback = callback;
 
   /**
    * @type {boolean}
@@ -58,14 +58,7 @@ function Waiter (timeout, interval, condition, callback) {
  * @private
  */
 Waiter._parseArgs = function (args) {
-  var options = {},
-      defaults = {
-        timeout: 1,
-        interval: 1,
-        condition: Waiter.noopPositive,
-        conditionAsync: false,
-        cb: Waiter.noop
-      };
+  var options = {};
 
   if (args.length == 1) {
     options = args[0];
@@ -77,10 +70,10 @@ Waiter._parseArgs = function (args) {
   }
 
   var result = {};
-  result.timeout = parseInt(options.timeout, 10) || defaults.timeout;
-  result.interval = parseInt(options.interval, 10) || defaults.interval;
-  result.condition = (typeof options.condition == 'function') ? options.condition : defaults.condition;
-  result.callback = (typeof options.callback == 'function') ? options.callback : defaults.cb;
+  result.timeout = parseInt(options.timeout || 1, 10) || 1;
+  result.interval = parseInt(options.interval || 1, 10) || 1;
+  result.condition = (typeof options.condition == 'function') ? options.condition : Waiter.noopPositive;
+  result.callback = (typeof options.callback == 'function') ? options.callback : Waiter.noop;
 
   return result;
 };
@@ -130,7 +123,7 @@ Waiter.prototype = {
       args = Waiter.toArray(arguments);
     }
 
-    this.cb.apply(WaiterContext, args);
+    this.callback.apply(WaiterContext, args);
 
     // self destruction
     delete(this);
