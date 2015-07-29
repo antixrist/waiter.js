@@ -47,6 +47,8 @@ Waiter take four arguments:
 ##### Simplified demo
 Sync:
 ```javascript
+// Each 100 milliseconds will be check your condition.
+// After 2000 milliseconds (2 sec) callback will be runned forcibly (or early if your condition will be 'true' or Array)
 waiter(2000, 100, function (elapsedTime, iteration, cb) {
   // return boolean
   return true;
@@ -62,7 +64,7 @@ waiter(2000, 100, function (elapsedTime, iteration, cb) {
   setTimeout(function () {
     // return boolean
     cb(true);
-  });
+  }, 1000);
 
   // don't return a value!
 }, function (err, elapsedTime, iteration) {

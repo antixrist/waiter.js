@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git://github.com/antixrist/waiter.js.git"
   },
-  "author": "antixrist",
+  "author": {
+    "name": "antixrist",
+    "email": "ya.antixrist@gmail.com",
+    "url": "http://antixrist.ru"
+  },
   "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/antixrist/waiter.js/issues"
