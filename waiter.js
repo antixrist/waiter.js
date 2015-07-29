@@ -126,7 +126,7 @@ Waiter.prototype = {
     this.callback.apply(WaiterContext, args);
 
     // self destruction
-    delete(this);
+    //delete(this);
   }
 };
 
@@ -183,5 +183,5 @@ Waiter.isArray = function (arg) {
 
 waiter = Waiter;
 if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
-  module.exports = waiter;
+  module.exports = Waiter;
 }

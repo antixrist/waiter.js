@@ -1,6 +1,6 @@
 {
   "name": "waiter.js",
-  "version": "0.0.1-beta",
+  "version": "0.0.1",
   "description": "Waiting for triggering custom sync/async condition with any timeout and interval",
   "main": "waiter.js",
   "scripts": {
@@ -8,10 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antixrist/waiter.js.git"
+    "url": "git://github.com/antixrist/waiter.js.git"
   },
   "author": "antixrist",
   "license": "WTFPL",
+
   "bugs": {
     "url": "https://github.com/antixrist/waiter.js/issues"
   },
