@@ -39,7 +39,7 @@ Waiter take four arguments:
 * ```callback``` *{Function}* Take three and more arguments:
   * ```error``` *{null|Error}* ```Error``` instance will be passed if your ```timeout``` is elapsed but ```condition``` still ```false```;
   * ```elapsedTime``` *{Number}* How much time elapsed in milliseconds;
-  * ```iteration``` *{Number}* Index of the current iteration;
+  * ```iteration``` *{Number}* Index of the last iteration;
   * If ```condition``` return array then its will be passed to callback at the end of the list of arguments.
 
 
