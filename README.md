@@ -94,7 +94,7 @@ var interval = 200 // 0.2 sec
 
 // run waiter!
 waiter(timeout, interval, function (elapsedTime, iteration) {
-  console.log('check!', 'testIt:', testIt, 'elapsed time:', elapsedTime +'ms', '; iteration:', iteration);
+  console.log('check!', 'testIt:', testIt, '; elapsed time:', elapsedTime +'ms', '; iteration:', iteration);
 
   return testIt === true;
 }, function (err, elapsedTime, iteration) {
