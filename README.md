@@ -28,8 +28,8 @@ var waiter = require('waiter.js');
 ### Using
 Waiter take four arguments:
 
-* ```timeout``` *{Number}* Max time in milliseconds;
-* ```interval``` *{Number}* Interval in milliseconds;
+* ```timeout``` *{Number}* Max waiting time in milliseconds;
+* ```interval``` *{Number}* Interval for check in milliseconds;
 * ```condition``` *{Function}* Return your condition's result **or** run callback with this result as first argument (if your handling is async). **Not both together!**
   If you return array then its will be passed to callback at the end of the list of arguments.
   This function take three arguments:
@@ -42,7 +42,47 @@ Waiter take four arguments:
   * ```iteration``` *{Number}* Index of the current iteration;
   * If ```condition``` return array then its will be passed to callback at the end of the list of arguments.
 
-#### Synchronous condition
+
+#### Demo
+##### Simplified demo
+Sync:
+```javascript
+waiter(2000, 100, function (elapsedTime, iteration, cb) {
+  // return boolean
+  return true;
+}, function (err, elapsedTime, iteration) {
+  // do something
+});
+```
+
+Async:
+```javascript
+waiter(2000, 100, function (elapsedTime, iteration, cb) {
+  // it's async
+  setTimeout(function () {
+    // return boolean
+    cb(true);
+  });
+
+  // don't return a value!
+}, function (err, elapsedTime, iteration) {
+  // do something
+});
+```
+
+Custom arguments:
+```javascript
+waiter(2000, 100, function (elapsedTime, iteration, cb) {
+  return ['arg1', true];
+}, function (err, elapsedTime, iteration, arg1, arg2) {
+  // arg1 === 'arg1'
+  // arg2 === true
+});
+```
+
+
+#### Real demo
+Synchronous condition ([demo](http://jsfiddle.net/antixrist/o3vL99z8/))
 ```javascript
 var testIt = false;
 setTimeout(function () {
@@ -69,9 +109,7 @@ waiter(timeout, interval, function (elapsedTime, iteration) {
 ```
 
 
-#### Asynchronous condition
-To condition-function also passing third argument - callback function.
-Run this callback with your condition's result as first argument.
+Asynchronous condition with custom arguments ([demo](http://jsfiddle.net/antixrist/m6hd2n8a/))
 ```javascript
 var testIt = false;
 setTimeout(function () {

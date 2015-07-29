@@ -5,10 +5,10 @@ var WaiterContext = this;
  * @param {Number} interval Interval in milliseconds
  * @param {Function} condition Return your condition's result or run callback with this result as first argument (if your handling is async). Not both together! If you return array then its will be passed to callback at the end of the list of arguments
  * @param {Function} callback Callback function
- * @returns {waiter}
+ * @returns {Waiter}
  * @constructor
  */
-waiter = function Waiter (timeout, interval, condition, callback) {
+function Waiter (timeout, interval, condition, callback) {
   var options,
       args = Waiter.toArray(arguments),
       isCleanedArgs = args[4] || false;
@@ -50,7 +50,7 @@ waiter = function Waiter (timeout, interval, condition, callback) {
   this.tstart = Waiter.getTimeInMs();
 
   this.check();
-};
+}
 
 /**
  * @param {[]} args
@@ -58,7 +58,7 @@ waiter = function Waiter (timeout, interval, condition, callback) {
  * @private
  */
 Waiter._parseArgs = function (args) {
-  var options,
+  var options = {},
       defaults = {
         timeout: 1,
         interval: 1,
@@ -189,7 +189,7 @@ Waiter.isArray = function (arg) {
   return Array.isArray(arg);
 };
 
-if (module && module.exports) {
+waiter = Waiter;
+if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
   module.exports = waiter;
 }
-
