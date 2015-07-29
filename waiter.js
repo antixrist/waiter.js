@@ -130,11 +130,10 @@ Waiter.prototype = {
       args = Waiter.toArray(arguments);
     }
 
-    var cb = this.cb;
+    this.cb.apply(WaiterContext, args);
 
-    delete(this); // self destruction
-
-    cb.apply(WaiterContext, args);
+    // self destruction
+    delete(this);
   }
 };
 

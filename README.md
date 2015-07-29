@@ -94,17 +94,17 @@ var interval = 200 // 0.2 sec
 
 // run waiter!
 waiter(timeout, interval, function (elapsedTime, iteration) {
-  console.log('check!', 'time left:', elapsedTime +'ms', '; iteration:', iteration, '; testIt:', testIt);
+  console.log('check!', 'testIt:', testIt, 'elapsed time:', elapsedTime +'ms', '; iteration:', iteration);
 
   return testIt === true;
 }, function (err, elapsedTime, iteration) {
   if (err) {
     // throw err;
-    console.log('Fail! Time left but condition still "false"!', elapsedTime +'ms', 'and', iteration, 'iteration', '; testIt:', testIt);
+    console.log('Fail! Time left but condition still "false"!', 'testIt:', testIt, ';', elapsedTime +'ms', 'and', iteration, 'iteration');
     return;
   }
 
-  console.log('done!', elapsedTime +'ms', 'and', iteration, 'iteration', '; testIt:', testIt);
+  console.log('done!', 'testIt:', testIt, ';', elapsedTime +'ms', 'and', iteration, 'iteration');
 });
 ```
 
@@ -121,13 +121,13 @@ var interval = 200 // 0.2 sec
 
 // run waiter!
 waiter(timeout, interval, function (elapsedTime, iteration, cb) {
-  console.log('check start!', 'time left:', elapsedTime +'ms', '; iteration:', iteration, '; testIt:', testIt);
+  console.log('check start!', 'testIt:', testIt, '; elapsed time:', elapsedTime +'ms', '; iteration:', iteration);
 
   var tstart = waiter.getTimeInMs();
 
   // async
   window.setTimeout(function () {
-    console.log('check end!', 'time left:', (elapsedTime + Waiter.getTimeInMs() - tstart) +'ms', '; iteration:', iteration, '; testIt:', testIt);
+    console.log('check end!', 'testIt:', testIt, '; elapsed time:', (elapsedTime + Waiter.getTimeInMs() - tstart) +'ms', '; iteration:', iteration);
     var result = (testIt === true);
 
     if (result) {
@@ -142,11 +142,11 @@ waiter(timeout, interval, function (elapsedTime, iteration, cb) {
   // customArg2 == 'custom argument 2'
   if (err) {
     // throw err;
-    console.log('Fail! Time left but condition still "false"!', elapsedTime +'ms', 'and', iteration, 'iteration', '; testIt:', testIt);
+    console.log('Fail! Time left but condition still "false"!', 'testIt:', testIt, ';', elapsedTime +'ms', 'and', iteration, 'iteration');
     return;
   }
 
-  console.log('done!', elapsedTime +'ms', 'and', iteration, 'iteration', '; testIt:', testIt);
+  console.log('done!', 'testIt:', testIt, ';', elapsedTime +'ms', 'and', iteration, 'iteration');
 });
 ```
 
