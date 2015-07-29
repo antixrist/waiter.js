@@ -31,7 +31,7 @@ Waiter take four arguments:
 * ```timeout``` *{Number}* Max waiting time in milliseconds;
 * ```interval``` *{Number}* Interval for check in milliseconds;
 * ```condition``` *{Function}* Return your condition's result **or** run callback with this result as first argument (if your handling is async). **Not both together!**
-  If you return array then its will be passed to callback at the end of the list of arguments.
+  If you return array then its will be passed to waiter-```callback``` at the end of the list of arguments.
   This function take three arguments:
   * ```elapsedTime``` *{Number}* How much time elapsed in milliseconds;
   * ```iteration``` *{Number}* Index of the current iteration;
