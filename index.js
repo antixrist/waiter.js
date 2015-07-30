@@ -126,7 +126,7 @@
      * @type {number}
      */
     this.iteration = 0;
-    
+
     /**
      * @type {Number}
      */
