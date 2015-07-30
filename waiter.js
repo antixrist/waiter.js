@@ -21,7 +21,7 @@ function Waiter (timeout, interval, condition, callback) {
     callback = options.callback;
   }
 
-  // singleton
+  // self constructor
   if (!(this instanceof Waiter)) {
     isCleanedArgs = true;
     return new Waiter(timeout, interval, condition, callback, isCleanedArgs);
