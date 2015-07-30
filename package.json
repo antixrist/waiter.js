@@ -1,8 +1,8 @@
 {
   "name": "waiter.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Waiting for triggering custom sync/async condition with any timeout and interval",
-  "main": "waiter.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -9,7 +9,7 @@ Running callback if:
 ### Setup
 #### Frontend:
 ```html
-<script type="text/javascript" src="waiter.js"></script>
+<script type="text/javascript" src="waiter.js/index.js"></script>
 ```
 
 #### Backend (```node.js``` or ```io.js```):
